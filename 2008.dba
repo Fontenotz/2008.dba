@@ -1,0 +1,24 @@
+cls
+load bitmap "horse.jpg"
+get image 5,0,0,40,35
+x=100
+y=-100
+make object cube 2,100
+scale object 2,25,25,25
+make object cylinder 3,100
+scale object 3,25,25,25
+
+repeat
+color object 2, rgb(rnd(255),rnd(255),rnd(255))
+position object 2,x,0,0
+
+color object 3, rgb(rnd(255),rnd(255),rnd(255))
+position object 3,y,0,0
+
+sleep 50
+x=x-5
+y=y+10
+texture object 2,5
+if object collision(2,3)=1 then print "BOOOOM" : suspend for key
+until mouseclick()=1
+end
